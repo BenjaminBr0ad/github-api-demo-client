@@ -10,7 +10,8 @@ class Header extends Component {
       retrieveData,
       handleChange,
       input,
-      error
+      error,
+      success
     } = this.props
 
     return (
@@ -26,12 +27,16 @@ class Header extends Component {
                   <Button type="submit" onClick={() => retrieveData(input)}>Submit</Button>
                 </InputGroupAddon>
             </InputGroup>
-            {error ?
+            {error && !success ?
               <Alert color="danger">
                 {error}
               </Alert>
-              :
+              : !error && success ?
               <Alert color="success">
+                {success}
+              </Alert>
+              :
+              <Alert color="info">
               e.g.: https://github.com/hapijs/hapi
               </Alert>
             }
@@ -45,7 +50,8 @@ class Header extends Component {
 const mapStateToProps = state => {
   const props = {
     input: state.main.input,
-    error: state.main.error
+    error: state.main.error,
+    success: state.main.success
   }
   return props
 }

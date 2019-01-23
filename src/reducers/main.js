@@ -5,7 +5,8 @@ import {
 
 const initialState = {
   pulls: [],
-  error: null
+  error: null,
+  success: null
 }
 
 export default (state = initialState, action) => {
@@ -15,14 +16,16 @@ export default (state = initialState, action) => {
     if (action.payload.error) {
       return {
         ...state,
-        error: action.payload.message
+        error: action.payload.message,
+        success: null
       }
     }
     else {
       return {
         ...state,
         pulls: action.payload,
-        error: null
+        error: null,
+        success: 'Success!'
       }
     }
 
