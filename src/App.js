@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import './App.css'
+import Header from './components/Header'
+import RequestList from './components/RequestList'
 
 class App extends Component {
   render() {
+    const { pulls } = this.props
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Header/>
+        {pulls.length > 0 ? <RequestList/> : null}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  const props = {
+    pulls: state.main.pulls
+  }
+  return props
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(App)
