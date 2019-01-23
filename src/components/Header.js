@@ -24,7 +24,7 @@ class Header extends Component {
             <InputGroup>
               <Input name="input" onChange={(e) => handleChange(e.target.name, e.target.value)}/>
                 <InputGroupAddon addonType="append">
-                  <Button type="submit" onClick={() => retrieveData(input)}>Submit</Button>
+                  <Button color="success" type="submit" onClick={() => retrieveData(input)}>Submit</Button>
                 </InputGroupAddon>
             </InputGroup>
             {error && !success ?

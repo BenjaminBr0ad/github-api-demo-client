@@ -16,8 +16,9 @@ export default (state = initialState, action) => {
     if (action.payload.error) {
       return {
         ...state,
+        pulls: [],
         error: action.payload.message,
-        success: null
+        success: null,
       }
     }
     else {
