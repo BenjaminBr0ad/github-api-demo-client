@@ -7,7 +7,7 @@ export const retrieveData = (url) => {
     repository_url: url
   }
   return async dispatch => {
-    const response = await fetch(`http://localhost:3000/api/pulls`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
@@ -19,7 +19,7 @@ export const retrieveData = (url) => {
     dispatch({
         type: RETRIEVE_DATA,
         payload: pulls
-    }) 
+    })
   }
 }
 

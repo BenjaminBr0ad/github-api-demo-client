@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "dotenv": "^6.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -13,8 +14,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node -r dotenv/config ./node_modules/.bin/react-scripts start dotenv_config_path=development.env",
+    "build": "node -r dotenv/config ./node_modules/.bin/react-scripts build dotenv_config_path=production.env",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
