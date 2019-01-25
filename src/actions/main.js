@@ -2,12 +2,11 @@ export const RETRIEVE_DATA = 'RETRIEVE_DATA'
 export const HANDLE_CHANGE = 'HANDLE_CHANGE'
 
 export const retrieveData = (url) => {
-  console.log('url', url);
   const body = {
     repository_url: url
   }
   return async dispatch => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/pulls`, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {

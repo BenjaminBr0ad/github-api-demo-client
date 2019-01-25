@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 class Request extends Component {
   render() {
     const { data } = this.props
-    console.log(data);
+
     return (
       <tr>
         <th scope="row">{data.author}</th>
@@ -16,7 +15,4 @@ class Request extends Component {
   }
 }
 
-export default connect(
-  null,
-  null
-)(Request)
+export default Request
